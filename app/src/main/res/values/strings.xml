@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">2dam2curious.toLearn</string>
+    <string name="tittle">.ToLearn();</string>
+    <string name="username">Username</string>
+    <string name="pwd">Password</string>
+    <string name="login">LogIn</string>
+    <string name="recover">Recover password</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+</resources>
