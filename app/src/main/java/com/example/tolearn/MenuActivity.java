@@ -36,7 +36,7 @@ public class MenuActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         appBarConfiguration= new AppBarConfiguration.Builder(R.id.nav_profile,
-                R.id.nav_notify,R.id.nav_pdf,
+                R.id.nav_newArea,R.id.nav_pdf,
                 R.id.nav_newDoc,R.id.nav_exit)
                 .setDrawerLayout(drawerLayout).build();
 

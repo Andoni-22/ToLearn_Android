@@ -8,11 +8,12 @@
 
     <ImageView
         android:id="@+id/ivHeader"
-        android:layout_width="449dp"
-        android:layout_height="218dp"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
         android:src="@drawable/header1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -50,7 +51,7 @@
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:text="@string/tvEmail"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -63,7 +64,7 @@
         android:id="@+id/tvFullname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:text="@string/tvFullname"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -97,7 +98,7 @@
         app:layout_constraintHorizontal_bias="0.165"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBithDate"
-        app:layout_constraintVertical_bias="0.257" />
+        app:layout_constraintVertical_bias="0.162" />
 
     <EditText
         android:id="@+id/etUsernameProf"
@@ -116,11 +117,11 @@
         android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toEndOf="@+id/tvEmail"
         app:layout_constraintTop_toBottomOf="@+id/etUsernameProf" />
 
@@ -150,29 +151,41 @@
 
     <TextView
         android:id="@+id/tvCompProf"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvCompProf"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toEndOf="@+id/tvCompany"
         app:layout_constraintTop_toBottomOf="@+id/etBithDate"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.117" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imgBtEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
         android:src="@drawable/ic_create_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCompProf"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintVertical_bias="0.371" />
+
+    <ImageButton
+        android:id="@+id/imgBtPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_a_photo_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/CircleImageUser"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.334" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

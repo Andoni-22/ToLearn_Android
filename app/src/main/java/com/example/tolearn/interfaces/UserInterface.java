@@ -6,7 +6,7 @@
 package com.example.tolearn.interfaces;
 
 
-import com.example.tolearn.entities.User;
+import com.example.tolearn.pojos.User;
 
 import java.util.Collection;
 
@@ -35,7 +35,7 @@ public interface UserInterface {
      * @return 
      */
     @GET("{login}/{password}")
-    public User login(@Path("login") String login,@Path("password") String password);
+    Call <User> login(@Path("login") String login,@Path("password") String password);
 
     /**
      * 
@@ -55,7 +55,7 @@ public interface UserInterface {
      * @param user 
      */
     @POST
-    public void create(@Body User user);
+    public  Call <Void> create(@Body User user);
 
     /**
      * 

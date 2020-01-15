@@ -6,7 +6,7 @@
 package com.example.tolearn.interfaces;
 
 
-import com.example.tolearn.entities.Area;
+import com.example.tolearn.pojos.Area;
 
 import java.util.Collection;
 
@@ -26,7 +26,7 @@ import retrofit2.http.Path;
 public interface AreaInterface {
 
     @POST
-    public void create(@Body Area entity);
+    public Call <Void> create(@Body Area entity);
 
     @PUT("{id}")
     public void edit(@Body Area entity);

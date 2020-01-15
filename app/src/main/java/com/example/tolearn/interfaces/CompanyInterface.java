@@ -5,7 +5,7 @@
  */
 package com.example.tolearn.interfaces;
 
-import com.example.tolearn.entities.Company;
+import com.example.tolearn.pojos.Company;
 
 import java.util.Collection;
 
@@ -26,7 +26,7 @@ public interface CompanyInterface {
 
 
     @POST
-    public void create(@Body Company company);
+    public  Call <Void> create(@Body Company company);
 
     @PUT("{id}")
     public void edit(@Body Company company);

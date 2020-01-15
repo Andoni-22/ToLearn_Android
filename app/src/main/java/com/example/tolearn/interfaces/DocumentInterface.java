@@ -5,7 +5,7 @@
  */
 package com.example.tolearn.interfaces;
 
-import com.example.tolearn.entities.Document;
+import com.example.tolearn.pojos.Document;
 
 import java.util.Collection;
 
@@ -25,7 +25,7 @@ import retrofit2.http.Path;
 public interface DocumentInterface {
 
     @POST
-    public void createNewDocument(@Body Document document);
+    public  Call <Void> createNewDocument(@Body Document document);
 
     @PUT
     public void updateDocument(@Body Document document);

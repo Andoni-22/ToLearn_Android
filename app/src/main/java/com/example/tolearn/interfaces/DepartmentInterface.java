@@ -6,7 +6,7 @@
 package com.example.tolearn.interfaces;
 
 
-import com.example.tolearn.entities.Department;
+import com.example.tolearn.pojos.Department;
 
 import java.util.Collection;
 
@@ -25,7 +25,7 @@ import retrofit2.http.Path;
 public interface DepartmentInterface {
 
     @POST
-    public void create(@Body Department entity);
+    public  Call <Void> create(@Body Department entity);
 
     @PUT("{id}")
     public void edit(@Body Department entity);

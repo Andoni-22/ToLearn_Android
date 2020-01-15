@@ -14,10 +14,10 @@ import com.example.tolearn.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NotifyFragment extends Fragment {
+public class NewAreaFragment extends Fragment {
 
 
-    public NotifyFragment() {
+    public NewAreaFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class NotifyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notify, container, false);
+        return inflater.inflate(R.layout.fragment_new_area, container, false);
     }
 
 }

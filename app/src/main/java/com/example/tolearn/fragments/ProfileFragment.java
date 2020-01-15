@@ -8,7 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tolearn.R;
 
@@ -21,6 +25,13 @@ import java.util.Random;
 public class ProfileFragment extends Fragment {
 
     private ImageView ivHeader;
+    private EditText etUsernameProf;
+    private EditText etEmail;
+    private EditText etFullName;
+    private EditText etBithDate;
+    private TextView tvCompProf;
+    private ImageButton imgBtEdit;
+    private ImageButton imgBtPhoto;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -29,15 +40,58 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root= inflater.inflate(R.layout.fragment_profile, container, false);
-        ivHeader = (ImageView)root.findViewById(R.id.ivHeader);
 
-        randomHeaderGenerator();
+        View root= inflater.inflate(R.layout.fragment_profile, container, false);
+
+        ivHeader = (ImageView)root.findViewById(R.id.ivHeader);
+        etUsernameProf = (EditText)root.findViewById(R.id.etUsernameProf);
+        etEmail = (EditText)root.findViewById(R.id.etEmail);
+        etFullName = (EditText)root.findViewById(R.id.etFullName);
+        etBithDate = (EditText)root.findViewById(R.id.etBithDate);
+        tvCompProf = (TextView) root.findViewById(R.id.tvCompProf);
+        imgBtEdit = (ImageButton)root.findViewById(R.id.imgBtEdit);
+        imgBtPhoto = (ImageButton)root.findViewById(R.id.imgBtPhoto);
+
+        etUsernameProf.setEnabled(false);
+        etEmail.setEnabled(false);
+        etFullName.setEnabled(false);
+        etBithDate.setEnabled(false);
+        imgBtPhoto.setEnabled(false);
+
+        imgBtPhoto.setVisibility(View.GONE);
+
+
+        imgBtEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgBtEdit.setImageResource(R.drawable.ic_save_black_24dp);
+
+                imgBtPhoto.setEnabled(true);
+                imgBtPhoto.setVisibility(View.VISIBLE);
+
+                etUsernameProf.setEnabled(true);
+                etEmail.setEnabled(true);
+                etFullName.setEnabled(true);
+                etBithDate.setEnabled(true);
+
+                imgBtEdit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        imgBtEdit.setImageResource(R.drawable.ic_update_black_24dp);
+                        saveData();
+                    }
+                });
+            }
+        });
+        //randomHeaderGenerator();
 
         return root;
     }
 
-    private void randomHeaderGenerator() {
+    private void saveData() {
+    }
+
+    /*private void randomHeaderGenerator() {
         Random aleatorio = new Random(System.currentTimeMillis());
         int intAletorio = aleatorio.nextInt(5);
         switch (intAletorio){
@@ -58,6 +112,6 @@ public class ProfileFragment extends Fragment {
                 break;
         }
 
-    }
+    }*/
 
 }

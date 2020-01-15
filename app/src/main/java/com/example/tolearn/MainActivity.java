@@ -12,6 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.tolearn.interfaces.UserInterface;
+import com.example.tolearn.pojos.User;
+import com.example.tolearn.retrofit.UserAPIClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnLogIn;
@@ -40,8 +48,41 @@ public class MainActivity extends AppCompatActivity {
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
-                startActivity(intent);
+                boolean login=true;
+                //login=checkLoginData();
+                if(login==true){
+                    Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+
+            private boolean checkLoginData() {
+                User user = new User();
+                final boolean[] login = {false};
+                String pwd, loginName;
+
+                loginName = etUsername.getText().toString();
+                pwd = etPwd.getText().toString();
+
+                UserInterface userInterface = UserAPIClient.getClient();
+
+                Call<User> call = (Call<User>) userInterface.login(loginName,pwd);
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if(response.code()==200){
+                            login[0] = true;
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+
+                    }
+                });
+
+                return login[0];
             }
         });
     }
