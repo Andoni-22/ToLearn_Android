@@ -12,11 +12,6 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@id/nav_newArea"
-        android:name="com.example.tolearn.fragments.NewAreaFragment"
-        android:label="New area"
-        tools:layout="@layout/fragment_new_area"/>
-    <fragment
         android:id="@id/nav_pdf"
         android:name="com.example.tolearn.fragments.PdfFragment"
         android:label="Documents"
