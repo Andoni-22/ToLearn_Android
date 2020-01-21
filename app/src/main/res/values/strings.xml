@@ -1,4 +1,5 @@
 <resources>
+    <!--Main-->
     <string name="app_name">2dam2curious.toLearn</string>
     <string name="tittle">.ToLearn();</string>
     <string name="username">Username</string>
@@ -8,6 +9,11 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <!--Recover password-->
+    <string name="tvRecover">Introduce your email to recover your password</string>
+    <string name="etEmail">Email</string>
+    <string name="btnRecover">Recover password</string>
+    <string name="bntCancel">Cancel</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Fragments -->
@@ -29,8 +35,7 @@
     <string name="visible">Visible</string>
     <string name="area">Select area</string>
 
-    <!-- New Doc -->
-    <string name="search">Search</string>
+
 
 
 </resources>

@@ -6,6 +6,7 @@
 package com.example.tolearn.pojos;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
@@ -31,105 +32,92 @@ public class User implements Serializable {
 
     private byte[] photo;
 
-    private Date lastAccess;
+    private String lastAccess;
 
-    private Date lastPassWordChange;
+    private String lastPassWordChange;
 
-    private Date bDate;
+    private String bDate;
 
     private Company company;
 
     private Collection<Document> documents;
 
     /**
-     * 
+     *
      */
-    public User() {
-    }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public int getId() {
         return id;
     }
-    
-/**
- * 
- * @param id 
- */
+
+    /**
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
-    
-/**
- * 
- * @return 
- */
+
+    /**
+     * @return
+     */
     public String getLogin() {
         return login;
     }
-    
-/**
- * 
- * @param login 
- */
+
+    /**
+     * @param login
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * 
-     * @param email 
+     * @param email
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public String getFullname() {
         return fullname;
     }
 
     /**
-     * 
-     * @param fullname 
+     * @param fullname
      */
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public Company getCompany() {
         return company;
     }
 
     /**
-     * 
-     * @param company 
+     * @param company
      */
     public void setCompany(Company company) {
         this.company = company;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
 
     public Collection<Document> getDocuments() {
@@ -137,153 +125,123 @@ public class User implements Serializable {
     }
 
     /**
-     * 
-     * @param documents 
+     * @param documents
      */
     public void setDocuments(Collection<Document> documents) {
         this.documents = documents;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public UserStatus getStatus() {
         return status;
     }
 
     /**
-     * 
-     * @param status 
+     * @param status
      */
     public void setStatus(UserStatus status) {
         this.status = status;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public UserPrivilege getPrivilege() {
         return privilege;
     }
 
     /**
-     * 
-     * @param privilege 
+     * @param privilege
      */
     public void setPrivilege(UserPrivilege privilege) {
         this.privilege = privilege;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * 
-     * @param password 
+     * @param password
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public Date getLastAccess() {
-        return lastAccess;
+        Date resultado=null;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd yyyy HH:mm:ss");
+            resultado= formatter.parse(lastAccess);
+        }catch (Exception e){
+            resultado=new Date();
+        }
+        return resultado;
     }
 
     /**
-     * 
-     * @param lastAccess 
+     * @param lastAccess
      */
-    public void setLastAccess(Date lastAccess) {
-        this.lastAccess = lastAccess;
+    public void setLastAccess(String lastAccess) {
+        this.lastAccess = lastAccess.toString();
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public Date getLastPassWordChange() {
-        return lastPassWordChange;
+        Date resultado=null;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd yyyy HH:mm:ss");
+            resultado= formatter.parse(lastPassWordChange);
+        }catch (Exception e){
+            resultado=new Date();
+        }
+        return resultado;
     }
 
     /**
-     * 
-     * @param lastPassWordChange 
+     * @param lastPassWordChange
      */
     public void setLastPassWordChange(Date lastPassWordChange) {
-        this.lastPassWordChange = lastPassWordChange;
+        this.lastPassWordChange = lastPassWordChange.toString();
     }
-    
+
     public Date getbDate() {
-        return bDate;
+        Date resultado=null;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd yyyy HH:mm:ss");
+            resultado= formatter.parse(bDate);
+        }catch (Exception e){
+            resultado=new Date();
+        }
+        return resultado;
     }
 
     public void setbDate(Date bDate) {
-        this.bDate = bDate;
+        this.bDate = bDate.toString();
     }
 
     /**
-     * 
-     * @return 
+     * @return
      */
     public byte[] getPhoto() {
         return photo;
     }
 
     /**
-     * 
-     * @param photo 
+     * @param photo
      */
     public void setPhoto(byte[] photo) {
         this.photo = photo;
-    }
-
-    /**
-     * 
-     * @return 
-     */
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (int) id;
-        return hash;
-    }
-
-    /**
-     * 
-     * @param object
-     * @return 
-     */
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
-            return false;
-        }
-        User other = (User) object;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * 
-     * @return 
-     */
-    @Override
-    public String toString() {
-        return "entitiesJPA.User[ id=" + id + " ]";
     }
 
 }

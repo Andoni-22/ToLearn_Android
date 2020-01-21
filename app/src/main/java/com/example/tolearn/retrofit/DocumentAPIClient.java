@@ -5,7 +5,7 @@ import retrofit2.Retrofit;
 import static retrofit2.converter.simplexml.SimpleXmlConverterFactory.create;
 
 public class DocumentAPIClient {
-    private static String API_BASE_URL = "http://localhost:8080/grupo5_reto2/";
+    private static String API_BASE_URL = "http://192.168.21.116:8080/grupo5_reto2/";
     public static DocumentInterface getClient(){
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 

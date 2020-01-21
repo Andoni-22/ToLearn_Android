@@ -72,27 +72,5 @@ public class Area implements Serializable {
     public void setDocuments(Collection<Document> documents) {
         this.documents = documents;
     }
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (int) id;
-        return hash;
-    }
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Area)) {
-            return false;
-        }
-        Area other = (Area) object;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }   
-    
-    @Override
-    public String toString() {
-        return "entitiesJPA.Area[ id=" + id + " ]";
-    }
+
 }

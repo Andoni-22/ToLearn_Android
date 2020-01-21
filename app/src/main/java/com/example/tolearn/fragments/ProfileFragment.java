@@ -1,10 +1,14 @@
 package com.example.tolearn.fragments;
 
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +22,8 @@ import com.example.tolearn.R;
 
 import java.util.Random;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +31,7 @@ import java.util.Random;
 public class ProfileFragment extends Fragment {
 
     private ImageView ivHeader;
+    private CircleImageView CircleImageUser;
     private EditText etUsernameProf;
     private EditText etEmail;
     private EditText etFullName;
@@ -44,6 +51,7 @@ public class ProfileFragment extends Fragment {
         View root= inflater.inflate(R.layout.fragment_profile, container, false);
 
         ivHeader = (ImageView)root.findViewById(R.id.ivHeader);
+        CircleImageUser = (CircleImageView)root.findViewById(R.id.CircleImageUser);
         etUsernameProf = (EditText)root.findViewById(R.id.etUsernameProf);
         etEmail = (EditText)root.findViewById(R.id.etEmail);
         etFullName = (EditText)root.findViewById(R.id.etFullName);
@@ -56,9 +64,14 @@ public class ProfileFragment extends Fragment {
         etEmail.setEnabled(false);
         etFullName.setEnabled(false);
         etBithDate.setEnabled(false);
-        imgBtPhoto.setEnabled(false);
 
-        imgBtPhoto.setVisibility(View.GONE);
+        imgBtPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,0);
+            }
+        });
 
 
         imgBtEdit.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +79,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 imgBtEdit.setImageResource(R.drawable.ic_save_black_24dp);
 
-                imgBtPhoto.setEnabled(true);
-                imgBtPhoto.setVisibility(View.VISIBLE);
+
 
                 etUsernameProf.setEnabled(true);
                 etEmail.setEnabled(true);
@@ -86,6 +98,14 @@ public class ProfileFragment extends Fragment {
         //randomHeaderGenerator();
 
         return root;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        CircleImageUser.setImageBitmap(bitmap);
+
     }
 
     private void saveData() {

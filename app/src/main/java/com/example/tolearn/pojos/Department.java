@@ -86,40 +86,5 @@ public class Department implements Serializable {
     public void setAreas(Collection<Area> areas) {
         this.areas = areas;
     }
-    /**
-     * 
-     * @return 
-     */
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (int) id;
-        return hash;
-    }
-    /**
-     * 
-     * @param object
-     * @return 
-     */
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Department)) {
-            return false;
-        }
-        Department other = (Department) object;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }
-    /**
-     * 
-     * @return 
-     */
-    @Override
-    public String toString() {
-        return "entitiesJPA.NewEntity[ id=" + id + " ]";
-    }
 
 }
